@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><H1>Dennis's Website</H1></title>
+</head>
+<body>
+    <h1>Dennis Kariukis Portfolio</h1>
+    <h2>Im A Web developer</h2>
+    <hr>
+    <a href="./assets/images/Best Books.png">Books Ranking project <br>
+        <img src="./assets/images/Best Books.png" alt="Best Books list" width="200">
+        </a>
+        <br>
+<a href="./assets/images/Birthday invite.png">Birthday invite<br>
+    <img src="./assets/images/Birthday invite.png" alt="Birthday invation" width="200">
+
+</a>
+    <hr>
+    <a href="./public/about.html">About Me</a>
+    <a href="./public/contact.html">Contact Me</a>
+    <br>
+    
+</body>
+
+
+</html>
