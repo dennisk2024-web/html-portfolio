@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Pickup Groups — UPSA &amp; UOG</title>
+  <title>Call lists — Femi, Josh, Shalom, David, Eddie, Dennis</title>
   <style>
     :root {
       --navy: #12263a;
@@ -17,7 +17,6 @@
       --ink: #243042;
       --muted: #5b6777;
     }
-
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -26,49 +25,25 @@
       color: var(--ink);
       line-height: 1.45;
     }
-
     .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 18px 64px; }
-
     header.hero {
       background: var(--navy);
       color: #fff;
       border-radius: 18px;
-      padding: 28px 28px 24px;
-      box-shadow: 0 12px 30px rgba(18, 38, 58, 0.28);
+      padding: 28px;
       border: 1px solid rgba(201, 162, 39, 0.35);
     }
-    header.hero h1 {
-      margin: 0 0 6px;
-      font-size: 1.7rem;
-      letter-spacing: 0.02em;
-    }
-    header.hero p.lede {
-      margin: 0 0 18px;
-      color: #d7e3ee;
-      max-width: 70ch;
-    }
-
-    .pickup-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+    header.hero h1 { margin: 0 0 6px; font-size: 1.7rem; }
+    header.hero p.lede { margin: 0 0 18px; color: #d7e3ee; max-width: 70ch; }
+    .pickup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .pickup-card {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.14);
       border-radius: 12px;
       padding: 14px 16px;
     }
-    .pickup-card .time {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--gold-soft);
-    }
-    .pickup-card h2 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-      color: #fff;
-    }
+    .pickup-card .time { font-size: 1.35rem; font-weight: 700; color: var(--gold-soft); }
+    .pickup-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #fff; }
     .pickup-card p { margin: 0; color: #dbe7f0; }
     .same-time {
       grid-column: 1 / -1;
@@ -78,9 +53,7 @@
       font-weight: 700;
       border-radius: 10px;
       padding: 10px;
-      letter-spacing: 0.03em;
     }
-
     .tips {
       margin: 18px 0 8px;
       background: #fff7dc;
@@ -89,14 +62,8 @@
       border-radius: 10px;
     }
     .tips h2 { margin: 0 0 6px; font-size: 1.05rem; }
-    .tips ul { margin: 0; padding-left: 18px; }
-
-    .summary {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 16px 0 22px;
-    }
+    .tips ol, .tips ul { margin: 0; padding-left: 18px; }
+    .summary { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
     .chip {
       background: #fff;
       border: 1px solid #e3d9bf;
@@ -105,20 +72,12 @@
       font-size: 0.92rem;
       color: var(--muted);
     }
-
-    .groups {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
+    .groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .group {
       background: var(--card);
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid #e6dcc3;
-      box-shadow: 0 8px 18px rgba(18, 38, 58, 0.08);
-      break-inside: avoid;
     }
     .group header {
       background: var(--navy-2);
@@ -126,20 +85,11 @@
       padding: 14px 16px;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
       gap: 8px;
     }
-    .group header h3 {
-      margin: 0;
-      font-size: 1.25rem;
-    }
+    .group header h3 { margin: 0; font-size: 1.25rem; }
     .group header span { color: var(--gold-soft); font-size: 0.9rem; }
-    .copy-box {
-      margin: 0 12px 14px;
-      background: #f4efe2;
-      border-radius: 10px;
-      padding: 10px;
-    }
+    .copy-box { margin: 0 12px 14px; background: #f4efe2; border-radius: 10px; padding: 10px; }
     .copy-box button {
       background: var(--gold);
       color: var(--navy);
@@ -155,19 +105,13 @@
       margin: 8px 0 0;
       max-height: 140px;
       overflow: auto;
-      color: #334;
     }
-    .group ol {
-      margin: 0;
-      padding: 10px 16px 14px 38px;
-    }
-    .group li {
-      padding: 8px 0;
-      border-bottom: 1px dashed #eadfb8;
-    }
+    .group ol { margin: 0; padding: 10px 16px 14px 38px; }
+    .group li { padding: 8px 0; border-bottom: 1px dashed #eadfb8; }
     .group li:last-child { border-bottom: 0; }
     .who { font-weight: 700; }
-    .phone { font-variant-numeric: tabular-nums; color: var(--navy); }
+    .phone { font-variant-numeric: tabular-nums; color: var(--navy); text-decoration: none; }
+    .phone:hover { text-decoration: underline; }
     .meta { display: block; font-size: 0.86rem; color: var(--muted); margin-top: 2px; }
     .tag {
       display: inline-block;
@@ -177,589 +121,260 @@
       padding: 2px 7px;
       border-radius: 999px;
       margin-right: 6px;
-      vertical-align: middle;
     }
     .tag.upsa { background: #d9f3e8; color: var(--upsa); }
     .tag.uog { background: #dce8f8; color: var(--uog); }
-
-    footer.notes {
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
+    footer.notes { margin-top: 22px; color: var(--muted); font-size: 0.92rem; }
     @media (max-width: 800px) {
       .pickup-grid, .groups { grid-template-columns: 1fr; }
-      header.hero { padding: 20px; }
-    }
-
-    @media print {
-      body { background: #fff; }
-      .wrap { padding: 0; max-width: none; }
-      header.hero { box-shadow: none; }
-      .groups { grid-template-columns: 1fr 1fr; }
-      .group { box-shadow: none; break-inside: avoid; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="hero">
-      <h1>UPSA &amp; UOG Pickup Groups</h1>
-      <p class="lede">Six follow-up groups. Different buses go to each campus. Pickup time is the same.</p>
+      <h1>People to call and follow up</h1>
+      <p class="lede">These 6 lists are for Femi, Josh, Shalom, David, Eddie, and Dennis to call. Tell each person the pickup for their campus. Copy a list and send it to that caller.</p>
       <div class="pickup-grid">
-        <div class="same-time">PICKUP TIME: 3:30 PM for both locations</div>
+        <div class="same-time">TELL THEM: pickup is 3:30 PM for both locations. Different buses, same time.</div>
         <div class="pickup-card">
-          <h2>UOG bus</h2>
-          <p>Meeting point: Night Market</p>
+          <h2>If they are UOG</h2>
+          <p>Night Market</p>
           <p class="time">3:30 PM</p>
         </div>
         <div class="pickup-card">
-          <h2>UPSA bus</h2>
-          <p>Meeting point: Next to the Football Pitch on campus</p>
+          <h2>If they are UPSA</h2>
+          <p>Next to the Football Pitch on campus</p>
           <p class="time">3:30 PM</p>
         </div>
       </div>
     </header>
 
     <section class="tips">
-      <h2>Follow-up tips for every group</h2>
-      <ul>
-        <li>Let the Bible speak when you call or message.</li>
-        <li>Ask whether they will attend the day service or the night service.</li>
-        <li>Confirm which bus they should take: UPSA or UOG. Time is 3:30 PM for both.</li>
-      </ul>
+      <h2>What to say on every call</h2>
+      <ol>
+        <li>Let the Bible speak.</li>
+        <li>Ask: day service or night service?</li>
+        <li>Give their pickup: 3:30 PM. UOG = Night Market. UPSA = Football Pitch.</li>
+      </ol>
     </section>
 
     <div class="summary">
-      <span class="chip">55 people assigned</span>
-      <span class="chip">42 UPSA · 13 UOG</span>
-      <span class="chip">6 leaders · even split</span>
-      <span class="chip">1 duplicate number removed</span>
+      <span class="chip">6 callers</span>
+      <span class="chip">55 people to follow up</span>
+      <span class="chip">Copy a list and send it out</span>
     </div>
 
     <main class="groups">
       <article class="group">
-        <header>
-          <h3>Femi</h3>
-          <span>10 people · 7 UPSA · 3 UOG</span>
-        </header>
+        <header><h3>Send to Femi</h3><span>10 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Armstrong</span>
-            <span class="phone">+233504226594</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Chantel</span>
-            <span class="phone">+233266264655</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Desmond</span>
-            <span class="phone">+233550203851</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Fred</span>
-            <span class="phone">+233504799214</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Guggisberg</span>
-            <span class="phone">+233256756092</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Joe</span>
-            <span class="phone">+233209224512</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Kingsley</span>
-            <span class="phone">+233554279048</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Adam</span>
-            <span class="phone">+233551185646</span>
-            <span class="meta">Accra / Muslim · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Emmanuel</span>
-            <span class="phone">+233552103856</span>
-            <span class="meta">Accra / Apostolic Church Ghana · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Lucia</span>
-            <span class="phone">+23324107139714</span>
-            <span class="meta">N/A · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Armstrong</span> <a class="phone" href="tel:+233504226594">+233504226594</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Chantel</span> <a class="phone" href="tel:+233266264655">+233266264655</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Desmond</span> <a class="phone" href="tel:+233550203851">+233550203851</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Fred</span> <a class="phone" href="tel:+233504799214">+233504799214</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Guggisberg</span> <a class="phone" href="tel:+233256756092">+233256756092</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Joe</span> <a class="phone" href="tel:+233209224512">+233209224512</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Kingsley</span> <a class="phone" href="tel:+233554279048">+233554279048</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Adam</span> <a class="phone" href="tel:+233551185646">+233551185646</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Emmanuel</span> <a class="phone" href="tel:+233552103856">+233552103856</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Lucia</span> <a class="phone" href="tel:+23324107139714">+23324107139714</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy Femi's list</button>
-          <pre>GROUP: Femi (10 people)
+          <button type="button" data-copy>Copy to send to Femi</button>
+          <pre>Femi — your people to call and follow up (10)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Armstrong | +233504226594 | UPSA | Football Pitch
-Chantel | +233266264655 | UPSA | Football Pitch
-Desmond | +233550203851 | UPSA | Football Pitch
-Fred | +233504799214 | UPSA | Football Pitch
-Guggisberg | +233256756092 | UPSA | Football Pitch
-Joe | +233209224512 | UPSA | Football Pitch
-Kingsley | +233554279048 | UPSA | Football Pitch
-Adam | +233551185646 | UOG | Night Market
-Emmanuel | +233552103856 | UOG | Night Market
-Lucia | +23324107139714 | UOG | Night Market</pre>
+Armstrong +233504226594 UPSA
+Chantel +233266264655 UPSA
+Desmond +233550203851 UPSA
+Fred +233504799214 UPSA
+Guggisberg +233256756092 UPSA
+Joe +233209224512 UPSA
+Kingsley +233554279048 UPSA
+Adam +233551185646 UOG
+Emmanuel +233552103856 UOG
+Lucia +23324107139714 UOG</pre>
         </div>
       </article>
 
       <article class="group">
-        <header>
-          <h3>Josh</h3>
-          <span>9 people · 7 UPSA · 2 UOG</span>
-        </header>
+        <header><h3>Send to Josh</h3><span>9 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Augustine</span>
-            <span class="phone">+233550974584</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Chloe</span>
-            <span class="phone">+233261366709</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Dylan</span>
-            <span class="phone">+233508396764</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Gideon</span>
-            <span class="phone">+233548251202</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Haba</span>
-            <span class="phone">+233201190746</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Joshua</span>
-            <span class="phone">+233542189998</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Majesty</span>
-            <span class="phone">+233599693227</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Albert</span>
-            <span class="phone">+233207144111</span>
-            <span class="meta">Accra · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Jeremiah</span>
-            <span class="phone">+233540199181</span>
-            <span class="meta">Action Senior High / Action Chapel · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Augustine</span> <a class="phone" href="tel:+233550974584">+233550974584</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Chloe</span> <a class="phone" href="tel:+233261366709">+233261366709</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Dylan</span> <a class="phone" href="tel:+233508396764">+233508396764</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Gideon</span> <a class="phone" href="tel:+233548251202">+233548251202</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Haba</span> <a class="phone" href="tel:+233201190746">+233201190746</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Joshua</span> <a class="phone" href="tel:+233542189998">+233542189998</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Majesty</span> <a class="phone" href="tel:+233599693227">+233599693227</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Albert</span> <a class="phone" href="tel:+233207144111">+233207144111</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Jeremiah</span> <a class="phone" href="tel:+233540199181">+233540199181</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy Josh's list</button>
-          <pre>GROUP: Josh (9 people)
+          <button type="button" data-copy>Copy to send to Josh</button>
+          <pre>Josh — your people to call and follow up (9)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Augustine | +233550974584 | UPSA | Football Pitch
-Chloe | +233261366709 | UPSA | Football Pitch
-Dylan | +233508396764 | UPSA | Football Pitch
-Gideon | +233548251202 | UPSA | Football Pitch
-Haba | +233201190746 | UPSA | Football Pitch
-Joshua | +233542189998 | UPSA | Football Pitch
-Majesty | +233599693227 | UPSA | Football Pitch
-Albert | +233207144111 | UOG | Night Market
-Jeremiah | +233540199181 | UOG | Night Market</pre>
+Augustine +233550974584 UPSA
+Chloe +233261366709 UPSA
+Dylan +233508396764 UPSA
+Gideon +233548251202 UPSA
+Haba +233201190746 UPSA
+Joshua +233542189998 UPSA
+Majesty +233599693227 UPSA
+Albert +233207144111 UOG
+Jeremiah +233540199181 UOG</pre>
         </div>
       </article>
 
       <article class="group">
-        <header>
-          <h3>Shalom</h3>
-          <span>9 people · 7 UPSA · 2 UOG</span>
-        </header>
+        <header><h3>Send to Shalom</h3><span>9 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Bright</span>
-            <span class="phone">+23353257531</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Collins</span>
-            <span class="phone">+233549006184</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Elizabeth</span>
-            <span class="phone">+233548842170</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Ignatuis</span>
-            <span class="phone">+233593713448</span>
-            <span class="meta">UPSA / Presbyterian · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Jeffrey</span>
-            <span class="phone">+233534473358</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Kennedy</span>
-            <span class="phone">+233539361327</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Mariam</span>
-            <span class="phone">+233558008894</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Awuni</span>
-            <span class="phone">+233554923307</span>
-            <span class="meta">Accra · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Kojo</span>
-            <span class="phone">+233502592612</span>
-            <span class="meta">Accra / Christ Embassy · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Bright</span> <a class="phone" href="tel:+23353257531">+23353257531</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Collins</span> <a class="phone" href="tel:+233549006184">+233549006184</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Elizabeth</span> <a class="phone" href="tel:+233548842170">+233548842170</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Ignatuis</span> <a class="phone" href="tel:+233593713448">+233593713448</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Jeffrey</span> <a class="phone" href="tel:+233534473358">+233534473358</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Kennedy</span> <a class="phone" href="tel:+233539361327">+233539361327</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Mariam</span> <a class="phone" href="tel:+233558008894">+233558008894</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Awuni</span> <a class="phone" href="tel:+233554923307">+233554923307</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Kojo</span> <a class="phone" href="tel:+233502592612">+233502592612</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy Shalom's list</button>
-          <pre>GROUP: Shalom (9 people)
+          <button type="button" data-copy>Copy to send to Shalom</button>
+          <pre>Shalom — your people to call and follow up (9)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Bright | +23353257531 | UPSA | Football Pitch
-Collins | +233549006184 | UPSA | Football Pitch
-Elizabeth | +233548842170 | UPSA | Football Pitch
-Ignatuis | +233593713448 | UPSA | Football Pitch
-Jeffrey | +233534473358 | UPSA | Football Pitch
-Kennedy | +233539361327 | UPSA | Football Pitch
-Mariam | +233558008894 | UPSA | Football Pitch
-Awuni | +233554923307 | UOG | Night Market
-Kojo | +233502592612 | UOG | Night Market</pre>
+Bright +23353257531 UPSA
+Collins +233549006184 UPSA
+Elizabeth +233548842170 UPSA
+Ignatuis +233593713448 UPSA
+Jeffrey +233534473358 UPSA
+Kennedy +233539361327 UPSA
+Mariam +233558008894 UPSA
+Awuni +233554923307 UOG
+Kojo +233502592612 UOG</pre>
         </div>
       </article>
 
       <article class="group">
-        <header>
-          <h3>David</h3>
-          <span>9 people · 7 UPSA · 2 UOG</span>
-        </header>
+        <header><h3>Send to David</h3><span>9 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Caleb</span>
-            <span class="phone">+233245112064</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Delight</span>
-            <span class="phone">+233543793010</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Fei</span>
-            <span class="phone">+233507569769</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Jerry</span>
-            <span class="phone">+233594069365</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Jessica</span>
-            <span class="phone">+233531154373</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Keturah</span>
-            <span class="phone">+233242972973</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Martin</span>
-            <span class="phone">+233241105831</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Bright</span>
-            <span class="phone">+233553357089</span>
-            <span class="meta">Accra · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Michael</span>
-            <span class="phone">+233558378394</span>
-            <span class="meta">Accra / Presbyterian · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Caleb</span> <a class="phone" href="tel:+233245112064">+233245112064</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Delight</span> <a class="phone" href="tel:+233543793010">+233543793010</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Fei</span> <a class="phone" href="tel:+233507569769">+233507569769</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Jerry</span> <a class="phone" href="tel:+233594069365">+233594069365</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Jessica</span> <a class="phone" href="tel:+233531154373">+233531154373</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Keturah</span> <a class="phone" href="tel:+233242972973">+233242972973</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Martin</span> <a class="phone" href="tel:+233241105831">+233241105831</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Bright</span> <a class="phone" href="tel:+233553357089">+233553357089</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Michael</span> <a class="phone" href="tel:+233558378394">+233558378394</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy David's list</button>
-          <pre>GROUP: David (9 people)
+          <button type="button" data-copy>Copy to send to David</button>
+          <pre>David — your people to call and follow up (9)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Caleb | +233245112064 | UPSA | Football Pitch
-Delight | +233543793010 | UPSA | Football Pitch
-Fei | +233507569769 | UPSA | Football Pitch
-Jerry | +233594069365 | UPSA | Football Pitch
-Jessica | +233531154373 | UPSA | Football Pitch
-Keturah | +233242972973 | UPSA | Football Pitch
-Martin | +233241105831 | UPSA | Football Pitch
-Bright | +233553357089 | UOG | Night Market
-Michael | +233558378394 | UOG | Night Market</pre>
+Caleb +233245112064 UPSA
+Delight +233543793010 UPSA
+Fei +233507569769 UPSA
+Jerry +233594069365 UPSA
+Jessica +233531154373 UPSA
+Keturah +233242972973 UPSA
+Martin +233241105831 UPSA
+Bright +233553357089 UOG
+Michael +233558378394 UOG</pre>
         </div>
       </article>
 
       <article class="group">
-        <header>
-          <h3>Eddie</h3>
-          <span>9 people · 7 UPSA · 2 UOG</span>
-        </header>
+        <header><h3>Send to Eddie</h3><span>9 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Felix</span>
-            <span class="phone">+233505171778</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Melody</span>
-            <span class="phone">+233576536291</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Nana</span>
-            <span class="phone">+233558637763</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Nani</span>
-            <span class="phone">+233502980331</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Owusu Nana</span>
-            <span class="phone">+233553364848</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Patrick</span>
-            <span class="phone">+233540657089</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Sarah</span>
-            <span class="phone">+233599684065</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Michael</span>
-            <span class="phone">+233555174335</span>
-            <span class="meta">Ashongman / Christ Embassy · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Peter</span>
-            <span class="phone">+233557225673</span>
-            <span class="meta">Accra · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Felix</span> <a class="phone" href="tel:+233505171778">+233505171778</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Melody</span> <a class="phone" href="tel:+233576536291">+233576536291</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Nana</span> <a class="phone" href="tel:+233558637763">+233558637763</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Nani</span> <a class="phone" href="tel:+233502980331">+233502980331</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Owusu Nana</span> <a class="phone" href="tel:+233553364848">+233553364848</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Patrick</span> <a class="phone" href="tel:+233540657089">+233540657089</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Sarah</span> <a class="phone" href="tel:+233599684065">+233599684065</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Michael</span> <a class="phone" href="tel:+233555174335">+233555174335</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Peter</span> <a class="phone" href="tel:+233557225673">+233557225673</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy Eddie's list</button>
-          <pre>GROUP: Eddie (9 people)
+          <button type="button" data-copy>Copy to send to Eddie</button>
+          <pre>Eddie — your people to call and follow up (9)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Felix | +233505171778 | UPSA | Football Pitch
-Melody | +233576536291 | UPSA | Football Pitch
-Nana | +233558637763 | UPSA | Football Pitch
-Nani | +233502980331 | UPSA | Football Pitch
-Owusu Nana | +233553364848 | UPSA | Football Pitch
-Patrick | +233540657089 | UPSA | Football Pitch
-Sarah | +233599684065 | UPSA | Football Pitch
-Michael | +233555174335 | UOG | Night Market
-Peter | +233557225673 | UOG | Night Market</pre>
+Felix +233505171778 UPSA
+Melody +233576536291 UPSA
+Nana +233558637763 UPSA
+Nani +233502980331 UPSA
+Owusu Nana +233553364848 UPSA
+Patrick +233540657089 UPSA
+Sarah +233599684065 UPSA
+Michael +233555174335 UOG
+Peter +233557225673 UOG</pre>
         </div>
       </article>
 
       <article class="group">
-        <header>
-          <h3>Dennis</h3>
-          <span>9 people · 7 UPSA · 2 UOG</span>
-        </header>
+        <header><h3>Send to Dennis</h3><span>9 to call</span></header>
         <ol>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Nana Yaw</span>
-            <span class="phone">+23350092735</span>
-            <span class="meta">UPSA / Pentecost · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Precious</span>
-            <span class="phone">+233591367817</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Reuben</span>
-            <span class="phone">+233530830459</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Roland</span>
-            <span class="phone">+233243975576</span>
-            <span class="meta">Accra / UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Theophilus</span>
-            <span class="phone">+233555324844</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Tijani</span>
-            <span class="phone">+233257063088</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag upsa">UPSA</span>
-            <span class="who">Veronica</span>
-            <span class="phone">+233505768459</span>
-            <span class="meta">UPSA · Football Pitch</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Stephen</span>
-            <span class="phone">+233205527803</span>
-            <span class="meta">Accra / Catholic · Night Market</span>
-          </li>
-          <li>
-            <span class="tag uog">UOG</span>
-            <span class="who">Tony</span>
-            <span class="phone">+233553488558</span>
-            <span class="meta">Accra · Night Market</span>
-          </li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Nana Yaw</span> <a class="phone" href="tel:+23350092735">+23350092735</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Precious</span> <a class="phone" href="tel:+233591367817">+233591367817</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Reuben</span> <a class="phone" href="tel:+233530830459">+233530830459</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Roland</span> <a class="phone" href="tel:+233243975576">+233243975576</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Theophilus</span> <a class="phone" href="tel:+233555324844">+233555324844</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Tijani</span> <a class="phone" href="tel:+233257063088">+233257063088</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag upsa">UPSA</span> <span class="who">Veronica</span> <a class="phone" href="tel:+233505768459">+233505768459</a><span class="meta">Tell them: Football Pitch, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Stephen</span> <a class="phone" href="tel:+233205527803">+233205527803</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
+          <li><span class="tag uog">UOG</span> <span class="who">Tony</span> <a class="phone" href="tel:+233553488558">+233553488558</a><span class="meta">Tell them: Night Market, 3:30 PM</span></li>
         </ol>
         <div class="copy-box">
-          <button type="button" data-copy>Copy Dennis's list</button>
-          <pre>GROUP: Dennis (9 people)
+          <button type="button" data-copy>Copy to send to Dennis</button>
+          <pre>Dennis — your people to call and follow up (9)
 
-UPSA &amp; UOG PICK UP
-Time: 3:30PM (same time, different buses)
+When you call:
+- Let the Bible speak
+- Ask day or night service
+- Pickup 3:30PM. UOG = Night Market. UPSA = next to Football Pitch. Different buses, same time.
 
-UOG — Night Market
-UPSA — Next to the Football Pitch on campus
-
-Tips: Let the Bible speak. Ask if they are coming to day or night service.
-
-Nana Yaw | +23350092735 | UPSA | Football Pitch
-Precious | +233591367817 | UPSA | Football Pitch
-Reuben | +233530830459 | UPSA | Football Pitch
-Roland | +233243975576 | UPSA | Football Pitch
-Theophilus | +233555324844 | UPSA | Football Pitch
-Tijani | +233257063088 | UPSA | Football Pitch
-Veronica | +233505768459 | UPSA | Football Pitch
-Stephen | +233205527803 | UOG | Night Market
-Tony | +233553488558 | UOG | Night Market</pre>
+Nana Yaw +23350092735 UPSA
+Precious +233591367817 UPSA
+Reuben +233530830459 UPSA
+Roland +233243975576 UPSA
+Theophilus +233555324844 UPSA
+Tijani +233257063088 UPSA
+Veronica +233505768459 UPSA
+Stephen +233205527803 UOG
+Tony +233553488558 UOG</pre>
         </div>
       </article>
     </main>
 
     <footer class="notes">
-      <p><strong>How the list was split:</strong> Anyone marked UPSA / Upsa / Uspa on the sheet goes to the UPSA bus (Football Pitch). Everyone else goes to the UOG bus (Night Market). Each leader got 7 UPSA names. Femi also received the extra UOG name so the groups stay as even as possible (10 / 9 / 9 / 9 / 9 / 9).</p>
-      <p><strong>Sheet notes:</strong> Michael (+233558378394, Accra / Presbyterian) was listed twice and assigned once, to David. The last row on the photo was cut off, so that person is not in a group yet.</p>
+      <p>These are call lists, not bus teams. Each caller should tell the person the right pickup. UPSA = Football Pitch. UOG = Night Market. Time is 3:30 PM for both.</p>
     </footer>
   </div>
   <script>
@@ -768,7 +383,7 @@ Tony | +233553488558 | UOG | Night Market</pre>
         var text = button.parentElement.querySelector("pre").innerText;
         navigator.clipboard.writeText(text).then(function () {
           var original = button.textContent;
-          button.textContent = "Copied";
+          button.textContent = "Copied — send it";
           setTimeout(function () { button.textContent = original; }, 1600);
         });
       });
